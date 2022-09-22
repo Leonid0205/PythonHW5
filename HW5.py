@@ -158,83 +158,83 @@
 
 # 2. ИГРА С БОТОМ
 
-import random
+# import random
 
-def first_turn():
-    player = ''
-    player1 = ''
-    flip = random.randint(1, 3)
-    if flip == 1:
-        print('It is players turn!')
-        player = 'Player'
-        player1 = 'Bot'
-    else:
-        print('It is bots turn!')
-        player = 'Bot'
-        player1 = 'Player '
-    return player, player1
-players = list(first_turn())
-print(players)
+# def first_turn():
+#     player = ''
+#     player1 = ''
+#     flip = random.randint(1, 3)
+#     if flip == 1:
+#         print('It is players turn!')
+#         player = 'Player'
+#         player1 = 'Bot'
+#     else:
+#         print('It is bots turn!')
+#         player = 'Bot'
+#         player1 = 'Player '
+#     return player, player1
+# players = list(first_turn())
+# print(players)
 
-while True:    
-    try:
-        turn_limit = int(input('Input the limit of candies for player per turn: '))
-        if 0 < turn_limit:
-            break
-        else:    
-            print('The number needs to be positive and not 0!!! ')
-    except ValueError:
-        print('ValueError!')
-while True:   
-    try:
-        result3 = int(input('Input the total amount of candies: '))
-        if 0 < result3 & result3 > turn_limit:
-            break
-        else:    
-            print('The number needs to be more than limit and above zero!!! ')
-    except ValueError:
-        print('ValueError!')
+# while True:    
+#     try:
+#         turn_limit = int(input('Input the limit of candies for player per turn: '))
+#         if 0 < turn_limit:
+#             break
+#         else:    
+#             print('The number needs to be positive and not 0!!! ')
+#     except ValueError:
+#         print('ValueError!')
+# while True:   
+#     try:
+#         result3 = int(input('Input the total amount of candies: '))
+#         if 0 < result3 & result3 > turn_limit:
+#             break
+#         else:    
+#             print('The number needs to be more than limit and above zero!!! ')
+#     except ValueError:
+#         print('ValueError!')
 
-def turn_player(result3, turn_limit):
-    while True:
-        try:
-            turn = int(input(f'{players[0]} choose a number between 1 and {turn_limit}: '))
-            if 0 < turn <= turn_limit:
-                break
-            else:    
-                print(f'{players[0]} the number needs to be between 1 and {turn_limit} not negative or zero!!! ')
-        except ValueError:
-            print('Invalid value!')
-    result3 = result3 - turn
-    print(f'Player took {turn} candies')
-    print(f'The amout of candies left is: {result3}')
-    return(result3)
+# def turn_player(result3, turn_limit):
+#     while True:
+#         try:
+#             turn = int(input(f'{players[0]} choose a number between 1 and {turn_limit}: '))
+#             if 0 < turn <= turn_limit:
+#                 break
+#             else:    
+#                 print(f'{players[0]} the number needs to be between 1 and {turn_limit} not negative or zero!!! ')
+#         except ValueError:
+#             print('Invalid value!')
+#     result3 = result3 - turn
+#     print(f'Player took {turn} candies')
+#     print(f'The amout of candies left is: {result3}')
+#     return(result3)
         
-def tur_bot(result3, turn_limit):
-    turn_bot = (result3 - 1)%(turn_limit + 1)
-    result3 = result3 - turn_bot
-    print(f'Bot took {turn_bot} candies')
-    print(f'The amout of candies left is: {result3}')
-    return result3
+# def tur_bot(result3, turn_limit):
+#     turn_bot = (result3 - 1)%(turn_limit + 1)
+#     result3 = result3 - turn_bot
+#     print(f'Bot took {turn_bot} candies')
+#     print(f'The amout of candies left is: {result3}')
+#     return result3
 
-if result3 > turn_limit:
-    while result3 > turn_limit:
-        if players[0] == 'Player':
-            result3 = turn_player(result3, turn_limit)
-            players[0] = 'Bot'
-        else: 
-            result3 = tur_bot(result3, turn_limit)
-            players[0] = 'Player'
-if result3 <= turn_limit:
-    while result3 > 0:
-        turn_limit = result3
-        if players[0] == 'Player':
-            result3 = turn_player(result3, turn_limit)
-            players[0] = 'Bot'
-        else: 
-            result3 = tur_bot(result3, turn_limit)
-            players[0] = 'Player'
-    if players[0] == 'Player':
-        print('Player wins!')
-    else:
-        print('Bot wins!')
+# if result3 > turn_limit:
+#     while result3 > turn_limit:
+#         if players[0] == 'Player':
+#             result3 = turn_player(result3, turn_limit)
+#             players[0] = 'Bot'
+#         else: 
+#             result3 = tur_bot(result3, turn_limit)
+#             players[0] = 'Player'
+# if result3 <= turn_limit:
+#     while result3 > 0:
+#         turn_limit = result3
+#         if players[0] == 'Player':
+#             result3 = turn_player(result3, turn_limit)
+#             players[0] = 'Bot'
+#         else: 
+#             result3 = tur_bot(result3, turn_limit)
+#             players[0] = 'Player'
+#     if players[0] == 'Player':
+#         print('Player wins!')
+#     else:
+#         print('Bot wins!')
